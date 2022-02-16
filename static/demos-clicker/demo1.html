@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clicker</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/game1.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script>
+
+    const jwt = localStorage.getItem("jwt");
+    const player = localStorage.getItem("id");
+
+    function fotoPerfil() {
+        let imagen = document.getElementById("profilePic");
+
+        $.ajax({
+            url: 'http://localhost:5000/api/player/' + player,
+            dataType: 'json',
+            contentType: 'application/json',
+            type: 'GET',
+            headers: {'Authorization': 'Bearer ' + jwt},
+            crossDomain: true,
+            success: function (datos) {
+                imagen.setAttribute("src", datos['imagen'])
+            }
+        });
+    }
+
+    $(document).ready(function(){
+        let enlace = document.getElementById("clasificaciones");
+        enlace.setAttribute("href", "clasificaciones.html");
+        fotoPerfil();
+
+        var myGame = new Game1(3);
+        myGame.updateClicks();
+        $('#rectangle').on("click", function (e) {
+            myGame.click(1);
+        });
+        myGame.randomRectangle();
+    });
+
+</script>
+<span id="rectangle"><span id="timer" class="hud"></span></span>
+<a href="" id="inicio" class="hud enlaces">Inicio</a>
+<a href="" id="clasificaciones" class="hud enlaces">Clasificaciones</a>
+<a href="index.html" id="logout" class="hud enlaces">Logout</a>
+<img id="profilePic" src="" alt="fotoPerfil" class="hud">
+<span id="player" class="hud"></span>
+<span id="clicks" class="hud"></span>
+</body>
+</html>

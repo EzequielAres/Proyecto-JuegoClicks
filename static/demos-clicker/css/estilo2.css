@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
+
+
+-- Clasificaciones
+
+#logout {
+    margin-left: 9vw;
+}
+
+.hud {
+    display: inline-block;
+    text-align: center;
+    width: 10rem;
+    font-family: 'Potta One';
+    user-select: none;
+}
+
+.letras {
+    top: 15vh;
+    width: 10rem;
+    font-family: 'Potta One';
+}
+
+.enlaces {
+    text-decoration: none;
+    color: black;
+}
+
+.enlaces:hover {
+    color: red;
+}
+
+#formulario {
+    margin-top: 5vh;
+}
+
+#tipo {
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    background: none;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+.encabezado {
+    font-size: 1.3vw;
+    font-family: 'Potta One';
+}
+
+.letrasTabla {
+    font-size: 1vw;
+    font-family: 'Potta One';
+}
+
+.imagenes {
+    width: 4vw;
+}
